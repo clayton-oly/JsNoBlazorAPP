@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="JsNoBlazorAPP/JsNoBlazorAPP.Client/JsNoBlazorAPP.Client.csproj" />
+  <Project Path="JsNoBlazorAPP/JsNoBlazorAPP/JsNoBlazorAPP.csproj" />
+</Solution>
