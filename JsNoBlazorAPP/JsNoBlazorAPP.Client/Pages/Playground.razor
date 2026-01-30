@@ -1,0 +1,36 @@
+﻿@page "/playground"
+@rendermode InteractiveWebAssembly
+@* Injetando o JS Interop *@
+@inject IJSRuntime JS
+
+<h3>JS INTEROP Playground</h3>
+
+<button class="btn-primary"
+        @onclick="HelloWorld">
+    Função COM Retorno
+</button>
+<br />
+<button class="btn-primary"
+        @onclick="HelloNome">
+    Função SEM Retorno
+</button>
+
+<span>@TextoRetorno</span>
+
+@code {
+    private async Task HelloWorld()
+    {
+        //chamando funções js sem retorno
+        await JS.InvokeVoidAsync("exemploFuncaoSemRetorno");
+    }
+
+    private string TextoRetorno = "";
+
+    private async Task HelloNome()
+    {
+
+        string nome = "Fulano";
+        //chamando funções js com retorno
+        await JS.InvokeAsync<string>("exemploFuncaoComRetorno", nome);
+    }
+}
